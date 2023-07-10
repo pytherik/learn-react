@@ -1,6 +1,5 @@
 const NavBar = () => {
   return (
-    <div>
       <nav className="navbar">
         <h1>The Dojo Blog</h1>
         <div className="links">
@@ -12,7 +11,6 @@ const NavBar = () => {
           }}>New Blog</a>
         </div>
       </nav>
-    </div>
   );
 };
 
