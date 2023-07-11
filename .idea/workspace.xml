@@ -5,11 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9aa5a12d-1b44-4723-8fa9-5d7b723ea3f3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dojo-blog/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/dojo-blog/public/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dojo-blog/src/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/dojo-blog/src/Home.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react-task-tracker/db.json_bak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react-task-tracker/src/components/AddTask.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-task-tracker/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/react-task-tracker/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-task-tracker/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/react-task-tracker/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-task-tracker/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-task-tracker/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-task-tracker/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-task-tracker/src/components/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-task-tracker/src/components/Task.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-task-tracker/src/components/Task.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-task-tracker/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/react-task-tracker/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-task-tracker/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/react-task-tracker/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +24,13 @@
   <component name="ComposerSettings">
     <execution />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -27,28 +39,37 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 8.2" />
   <component name="ProjectId" id="2SMtOIGdrsnut2nMGBdzT6dvJ3z" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
     <option name="autoscrollToSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.webide.settings.project.settings.php&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "/var/www/ebweb/learn-react/react-task-tracker",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "settings.editor.selected.configurable": "Errors",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/react-task-tracker" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
