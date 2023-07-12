@@ -4,28 +4,30 @@ import BlogList from "./BlogList";
 const Home = () => {
   const [blogs, setBlogs] = useState ([]);
   const [isPending, setIsPending] = useState(true);
-
-  // const fetchBlogs = async () => {
-  //   const response = await fetch('http://localhost:8000/blogs');
-  //   return await response.json();
-  // }
-  //
-  // useEffect(() => {
-  //
-  //   const blogsFetched = async () => {
-  //     const blogsFromServer = await fetchBlogs()
-  //     setBlogs(blogsFromServer);
-  //   };
-  //   blogsFetched();
-  //   }, []);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:8000/blogs').then(res => res.json()).then(data => setBlogs(data))
+    setTimeout(() => {
+    fetch('http://localhost:8000/bogs').then(res => {
+      if(!res.ok) {
+        throw Error('Sorry, konnte keine Daten fetschen.')
+      }
+      return res.json();
+    }).
+    then(data => {
+      setBlogs(data);
+      setIsPending(false);
+      setError(null);
+    }).catch(err => {
+      setIsPending(false);
+      setError(err.message);
+    })}, 1000)
   }, [])
 
 
   return (
     <div className="home">
+      { error && <div className="error">{error}</div> }
       { isPending && <div>loading...</div> }
       { blogs && <BlogList blogs={ blogs }
                            title="All blogs"/> }
