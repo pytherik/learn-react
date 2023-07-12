@@ -4,6 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="9aa5a12d-1b44-4723-8fa9-5d7b723ea3f3" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/react-task-tracker/db.json_bak" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/react-task-tracker/src/components/AddTask.js" afterDir="false" />
@@ -16,6 +17,9 @@
       <change beforePath="$PROJECT_DIR$/react-task-tracker/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/react-task-tracker/src/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/react-task-tracker/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/react-task-tracker/yarn.lock" afterDir="false" />
     </list>
+=======
+    <list default="true" id="9aa5a12d-1b44-4723-8fa9-5d7b723ea3f3" name="Changes" comment="" />
+>>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -79,7 +83,7 @@
       <option name="presentableId" value="Default" />
       <updated>1688968244194</updated>
       <workItem from="1688968245206" duration="6613000" />
-      <workItem from="1689054821603" duration="2881000" />
+      <workItem from="1689054821603" duration="3539000" />
     </task>
     <servers />
   </component>
