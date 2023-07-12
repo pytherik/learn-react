@@ -4,8 +4,8 @@
 * {
   margin: 0;
   font-family: "Quicksand";
-  color: #333;
-  background-color: darksalmon;
+  color: #deeded;
+  background-color: #333;
 }
 .navbar {
   padding: 20px;
@@ -49,6 +49,27 @@
 
 .blog-preview h2 {
   font-size: 20px;
-  color: #f1356d;
   margin-bottom: 8px;
+}
+
+.btn {
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 16px;
+  margin-top: .3rem;
+  color: #dedeed;
+  padding: 4px;
+  border-radius: 8px;
+}
+
+.btn:hover {
+  filter: brightness(80%);
+}
+
+.btn-new {
+  background-color: #338833;
+}
+
+.btn-delete {
+  background-color: #f1356d;
 }

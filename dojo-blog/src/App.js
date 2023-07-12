@@ -1,6 +1,7 @@
+//info start json-server:
+// npx json-server --watch data\db.json --port 8000
 import NavBar from "./NavBar";
 import Home from "./Home";
-// import "./index.css";
 
 function App() {
   return (
