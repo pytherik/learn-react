@@ -17,6 +17,12 @@
       "text": "Food Shopping",
       "day": "July 15th at 4:00pm",
       "reminder": false
+    },
+    {
+      "text": "Abendbrot",
+      "day": "heute 7:15",
+      "reminder": true,
+      "id": 4
     }
   ]
 }

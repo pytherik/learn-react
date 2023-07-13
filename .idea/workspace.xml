@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     <list default="true" id="9aa5a12d-1b44-4723-8fa9-5d7b723ea3f3" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/react-task-tracker/db.json_bak" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/react-task-tracker/src/components/AddTask.js" afterDir="false" />
@@ -17,6 +18,9 @@
       <change beforePath="$PROJECT_DIR$/react-task-tracker/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/react-task-tracker/src/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/react-task-tracker/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/react-task-tracker/yarn.lock" afterDir="false" />
     </list>
+=======
+    <list default="true" id="9aa5a12d-1b44-4723-8fa9-5d7b723ea3f3" name="Changes" comment="" />
+>>>>>>> Stashed changes
 =======
     <list default="true" id="9aa5a12d-1b44-4723-8fa9-5d7b723ea3f3" name="Changes" comment="" />
 >>>>>>> Stashed changes
@@ -55,6 +59,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",

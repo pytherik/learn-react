@@ -22,10 +22,16 @@ const  App = () => {
   }, []);
 
   //info AddTask
-  const addTask = (task) => {
-    const id = tasks[tasks.length - 1].id + 1;
-    const newTask = { ...task, id }
-    setTasks([...tasks, newTask]);
+  const addTask = async (task) => {
+    await fetch('http://localhost:5000/tasks', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(task)
+    })
+
+    const tasksFromServer = await fetchTasks();
+    setTasks(tasksFromServer);
+    console.log(tasks);
   }
   
   //info Delete Task
