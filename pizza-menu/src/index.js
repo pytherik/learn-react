@@ -55,31 +55,68 @@ const Header = () => {
 }
 
 const Pizza = ({ pizzaObj }) => {
+  // if (pizzaObj.soldOut === true) return null;
+
   return (
-    <div className="pizza">
+    <div className={`pizza ${pizzaObj.soldOut && 'sold-out'}`}>
       <img src={ pizzaObj.photoName } alt={pizzaObj.name}/>
       <li>
         <h3>{ pizzaObj.name }</h3>
         <p>{ pizzaObj.ingredients }</p>
-        <span>{ pizzaObj.price }</span>
+        <span>{ pizzaObj.soldOut ? 'Ausverkauft' : pizzaObj.price }</span>
       </li>
     </div>
   )
 }
 
 const Menu = () => {
+  const pizzas =  pizzaData;
+
   return (
     <div className="menu">
       <h2>Our Angebot</h2>
+      { pizzas.length > 0 ? ( //info beim rendern von Listen wird ein key benötigt.
+                              // Dann muss <React.Fragment key="blabla"> anstelle von <>
+                              // verwendet werden.
+        <>
+          <p>
+            Echte Tiefkühlpizza von Lidl oder Aldi aus dem 5er Pack. Wir backen schonend
+            im Wasserbad und servieren lauwarm und vorgekaut.
+          </p>
       <ul className="pizzas">
-        {pizzaData.map(pizza => <Pizza pizzaObj={pizza} key={pizza.name} /> )}
+        {pizzas.map(pizza => (
+          <Pizza pizzaObj={pizza} key={pizza.name} />
+        ))}
       </ul>
+        </>
+        ) : <h3 style={{ fontSize: '2rem' }}>Nüscht mehr da, komm morgen wieder!</h3>
+      }
     </div>
   )
 }
 
+const Order = ({ closehour }) => {
+  return (
+  <footer className="footer">
+    <div className="order">
+      <p>Wir haben open bis { closehour }:00. Komm vorbei oder lass es einfach sein!</p>
+      <button className="btn">Bestell mich!</button>
+    </div>
+  </footer> )
+
+
+}
 const Footer = () => {
-  return <footer className="footer">{new Date().toLocaleTimeString()} We're currently frustrated</footer>
+  const hour = new Date().getHours();
+  const openHour = 12;
+  const closehour = 22;
+  const isOpen = hour >= openHour && hour <= closehour
+
+  return <footer className="footer">
+    {isOpen ? (
+      <Order closehour={ closehour } />
+      ) : <h1>Wir ham zuhu!</h1>}
+  </footer>
 }
 
 
