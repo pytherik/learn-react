@@ -23,12 +23,19 @@ const faqs = [
 
 
 const AccordionItem = ({ num, title, text }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const icon = isOpen ? '-' : '+';
+
+  function handleToggle() {
+    setIsOpen(!isOpen);
+  }
+
   return (
-    <div className="item">
-      <p className="number">{ num }</p>
+    <div className={`item ${isOpen && "open"}`} onClick={ handleToggle }>
+      <p className="number">{ `0${num + 1}`.slice(-2) }</p>
       <p className="text">{ title }</p>
-      <p className="icon">-</p>
-      <div className="content-box">{ text }</div>
+      <p className="icon">{ icon }</p>
+      { isOpen && <div className="content-box">{text}</div>}
     </div>
   )
 }
@@ -38,8 +45,9 @@ const Accordion = ({ data }) => {
   return (
     <div className="accordion">
       { data.map((el, idx) => <AccordionItem title={ el.title }
-                                      num={ idx }
-                                      text={ el.text }/>)}
+                                             num={ idx }
+                                             text={ el.text }
+                                             key={idx}/>)}
      </div>
   );
 }
