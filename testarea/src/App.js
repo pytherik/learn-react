@@ -1,11 +1,13 @@
-import TipCalculator from "./TipCalculator";
+// import TipCalculator from "./TipCalculator";
 // import Image from "./Image";
+import MultiTimer from "./MultiTimer";
 
 const App = () => {
   return (
     <div>
-      <TipCalculator />
+      {/*<TipCalculator />*/}
       {/*<Image />*/}
+      <MultiTimer />
     </div>
   );
 };
