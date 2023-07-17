@@ -8,7 +8,8 @@ const images = [
 const App = () => {
   return (
     <div className="container">
-      {images.map((image, idx) =>  <Image img={image} key={idx} />)}
+      {images.map((image, idx) =>
+        <Image img={image} key={idx} />)}
     </div>
   );
 };
