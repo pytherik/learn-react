@@ -22,12 +22,12 @@ const faqs = [
 ];
 
 
-const AccordionItem = ({ num, title, text }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const AccordionItem = ({ num, title, curOpen, onOpen, children }) => {
+  const isOpen = num === curOpen;
   const icon = isOpen ? '-' : '+';
 
   function handleToggle() {
-    setIsOpen(!isOpen);
+    curOpen === num ? onOpen(null): onOpen(num);
   }
 
   return (
@@ -35,19 +35,39 @@ const AccordionItem = ({ num, title, text }) => {
       <p className="number">{ `0${num + 1}`.slice(-2) }</p>
       <p className="text">{ title }</p>
       <p className="icon">{ icon }</p>
-      { isOpen && <div className="content-box">{text}</div>}
+      { isOpen && <div className="content-box">{ children }</div>}
     </div>
   )
 }
 
 
 const Accordion = ({ data }) => {
+  const [curOpen, setCurOpen] = useState(null);
   return (
     <div className="accordion">
-      { data.map((el, idx) => <AccordionItem title={ el.title }
-                                             num={ idx }
-                                             text={ el.text }
-                                             key={idx}/>)}
+      { data.map((el, idx) =>
+          <AccordionItem
+            curOpen={ curOpen }
+            onOpen={ setCurOpen }
+            title={ el.title }
+            num={ idx }
+            key={idx}>
+            { el.text }
+          </AccordionItem>
+      )}
+      <AccordionItem
+        curOpen={ curOpen }
+        onOpen={ setCurOpen }
+        title={ "Wo ist der Schabernack?" }
+        num={ 23 }
+        key={ 23 }>
+        <h3>Das würdest du wohl gerne wissen...</h3>
+        <ul>
+          <li>nicht im Schrank</li>
+          <li>nicht in der Küche</li>
+          <li>nicht auf dem Klo</li>
+        </ul>
+      </AccordionItem>
      </div>
   );
 }
