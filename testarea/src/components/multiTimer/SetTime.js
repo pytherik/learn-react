@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import {useState} from 'react';
 import SetPart from "./SetPart";
 
-const SetTime = ({ onTimeSet }) => {
+const SetTime = ({ onTimeSet, val }) => {
   const hourMax = 23;
   const minMax = 59;
   const secMax = 59;
@@ -13,17 +13,25 @@ const SetTime = ({ onTimeSet }) => {
 
   return (
     <div className="time-input">
-      <form onSubmit={ onTimeSet.bind([hours, mins, secs]) }>
-        <SetPart onTimeChange={ setHours } max={hourMax}>
-          Hours
-        </SetPart>
-        <SetPart onTimeChange={ setMins } max={minMax}>
-          Minutes
-        </SetPart>
-        <SetPart onTimeChange={ setSecs } max={secMax}>
-          Seconds
-        </SetPart>
-        <button>dieseZeit</button>
+      <form onSubmit={onTimeSet.bind([hours, mins, secs])}>
+        <div className="form-input">
+          <SetPart onTimeChange={setHours}
+                   max={hourMax}
+                   val={ val }>
+            HH
+          </SetPart>
+          <SetPart onTimeChange={setMins}
+                   max={minMax}
+                   val={ val }>
+            MM
+          </SetPart>
+          <SetPart onTimeChange={setSecs}
+                   max={secMax}
+                   val={ val }>
+            SS
+          </SetPart>
+        </div>
+      <button className="btn btn-save">dieseZeit</button>
       </form>
     </div>
   );
