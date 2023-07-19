@@ -1,6 +1,10 @@
 import { useState } from "react";
 import { tempWatchedData, tempMovieData } from "./components/movieData";
 import Navbar from "./components/Navbar";
+import Search from "./components/Search";
+import NumResults from "./components/NumResults";
+
+
 const average = (arr) =>
   arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
 
@@ -80,19 +84,13 @@ const WatchedMoviesList = ({ watched }) => {
   )
 }
 
-const WatchedBox = () => {
-  const [watched, setWatched] = useState(tempWatchedData);
-  const [isOpen2, setIsOpen2] = useState(true);
+const MovieList = ({ movies }) => {
   return (
-    <div className="box">
-      <Button isOpen={ isOpen2 } setIsOpen={ setIsOpen2 } />
-      {isOpen2 && (
-        <>
-          <WatchedSummary watched={ watched } />
-          <WatchedMoviesList watched={ watched } />
-        </>
-      )}
-    </div>
+    <ul className="list">
+      {movies?.map((movie) => (
+        <Movie movie={ movie } />
+      ))}
+    </ul>
   )
 }
 
@@ -111,43 +109,78 @@ const Movie = ({ movie }) => {
   )
 }
 
-const MovieList = ({ movies }) => {
-  return (
-    <ul className="list">
-      {movies?.map((movie) => (
-        <Movie movie={ movie } />
-      ))}
-    </ul>
-  )
-}
 
-const ListBox = ({ movies }) => {
-  const [isOpen1, setIsOpen1] = useState(true);
+const Box = ({ children }) => {
+  const [isOpen, setIsOpen] = useState(true);
   return (
     <div className="box">
-      <Button isOpen={ isOpen1 } setIsOpen={ setIsOpen1 } />
-      {isOpen1 && (
-        <MovieList movies={ movies } />
-      )}
+      <Button isOpen={ isOpen } setIsOpen={ setIsOpen } />
+      {isOpen && children }
     </div>
   )
 }
 
-const Main = ({ movies }) => {
+
+const Main = ({ children }) => {
   return (
     <main className="main">
-      <ListBox movies={ movies } />
-      <WatchedBox />
+      { children }
     </main>
   )
 }
 
 export default function App() {
+  const [watched, setWatched] = useState(tempWatchedData);
   const [movies, setMovies] = useState(tempMovieData);
   return (
     <>
-      <Navbar movies={ movies }/>
-      <Main movies={ movies } />
+      <Navbar>
+        <Search />
+        <NumResults movies={ movies } />
+      </Navbar>
+      <Main>
+        {/*info explicit composing using an element*/}
+
+        {/*<Box element={ <MovieList movies={movies} /> }/>*/}
+        {/*<Box element={*/}
+        {/*  <>*/}
+        {/*    <WatchedSummary watched={ watched } />*/}
+        {/*    <WatchedMoviesList watched={ watched } />*/}
+        {/*  </>*/}
+        {/*}*/}
+        {/*/>*/}
+
+        {/*info implicit composing using children*/}
+
+        <Box>
+          <MovieList movies={ movies } />
+        </Box>
+        <Box>
+          <WatchedSummary watched={ watched } />
+          <WatchedMoviesList watched={ watched } />
+        </Box>
+      </Main>
      </>
   );
 }
+
+
+// const WatchedBox = ({ children }) => {
+//   const [isOpen2, setIsOpen2] = useState(true);
+//   return (
+//     <div className="box">
+//       <Button isOpen={ isOpen2 } setIsOpen={ setIsOpen2 } />
+//       {isOpen2 && children }
+//     </div>
+//   )
+// }
+//
+// const ListBox = ({ children }) => {
+//   const [isOpen1, setIsOpen1] = useState(true);
+//   return (
+//     <div className="box">
+//       <Button isOpen={ isOpen1 } setIsOpen={ setIsOpen1 } />
+//       { isOpen1 && children }
+//     </div>
+//   )
+// }
