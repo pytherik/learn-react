@@ -295,7 +295,8 @@ body {
   gap: 2.4rem;
 }
 
-.btn-add {
+.btn-add,
+.btn-resume {
   background-color: var(--color-primary);
   color: var(--color-text);
   border: none;
@@ -305,6 +306,11 @@ body {
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s;
+}
+
+.btn-resume {
+  background-color: #666;
+  color: #be5;
 }
 
 .btn-add:hover {

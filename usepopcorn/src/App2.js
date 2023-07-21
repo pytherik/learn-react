@@ -52,7 +52,7 @@ const WatchedSummary = ({watched}) => {
   )
 }
 
-const WatchedMovie = ({movie, onDelete}) => {
+const WatchedMovie = ({movie}) => {
   return (
     <li>
       <img src={movie.poster} alt={`${movie.title} poster`}/>
@@ -70,17 +70,16 @@ const WatchedMovie = ({movie, onDelete}) => {
           <span>⏳</span>
           <span>{movie.runtime} min</span>
         </p>
-        <button className="btn-delete" onClick={() => onDelete(movie.imdbID)}>X</button>
       </div>
     </li>
   )
 }
 
-const WatchedMoviesList = ({watched, onDelete}) => {
+const WatchedMoviesList = ({watched}) => {
   return (
     <ul className="list">
       {watched.map((movie) => (
-        <WatchedMovie movie={movie} key={movie.imdbID} onDelete={onDelete}/>
+        <WatchedMovie movie={movie} key={movie.imdbID}/>
       ))}
     </ul>
   )
@@ -149,9 +148,13 @@ const MovieDetails = ({selectedId, onCloseMovie, onAddWatched, watched}) => {
   const [movie, setMovie] = useState({})
   const [isLoading, setIsLoading] = useState(false);
   const [userRating, setUserRating] = useState(0);
-
-  const isWatched = watched.map(movie => movie.imdbID).includes(selectedId);
-  const watchedUserRating = watched.find(movie => movie.imdbID === selectedId)?.userRating;
+  const [isListed, setIsListed] = useState(false);
+  useEffect(() => {
+    setUserRating(watched
+      .filter(movie => movie.imdbID === selectedId && movie)[0]
+      ?.userRating || 0);
+    setIsListed(watched.some(movie => movie.imdbID === selectedId));
+  }, [selectedId]);
   const {
     Title: title,
     Year: year,
@@ -196,28 +199,6 @@ const MovieDetails = ({selectedId, onCloseMovie, onAddWatched, watched}) => {
     getMovieDetails();
   }, [selectedId]);
 
-  useEffect(() => {
-    if (!title) return;
-    document.title = `Movie | ${title}`;
-
-    return function () {
-      document.title = 'usePopcorn';
-    }
-  }, [title]);
-
-  useEffect(() => {
-    function callback(e) {
-      if (e.key === "Escape") {
-        onCloseMovie();
-      }
-    }
-    document.addEventListener('keydown', callback);
-    return function () {
-      document.removeEventListener('keydown', callback);
-    }
-  }, [onCloseMovie]);
-
-
   return (
     <div className="details">
       {isLoading ? <Loader/> :
@@ -237,18 +218,14 @@ const MovieDetails = ({selectedId, onCloseMovie, onAddWatched, watched}) => {
           </header>
           <section>
             <div className="rating">
-              {!isWatched ?
-                <>
-                  <StarRating maxRating={10}
-                              size={24}
-                              onRateChange={setUserRating}/>
-                  <button className="btn-add" onClick={handleAdd}>
-                    + Add to list +
-                  </button>
-                </>
-                : <p>You rated this movie with {watchedUserRating} ⭐</p>
-              }
-
+              <StarRating maxRating={10}
+                          size={24}
+                          defaultRating={userRating}
+                          onRateChange={setUserRating}/>
+              {/*<button className={isListed ? "btn-resume": "btn-add"} onClick={isListed ? onCloseMovie:  handleAdd}>*/}
+              {/*  {isListed ? "back":"+ Add +"}*/}
+              {/*</button>*/}
+              {!isListed && <button className="btn-add" onClick={handleAdd}>+ Add +</button>}
             </div>
             <p>
               <em>{plot}</em>
@@ -263,16 +240,12 @@ const MovieDetails = ({selectedId, onCloseMovie, onAddWatched, watched}) => {
 }
 
 export default function App() {
+  const [watched, setWatched] = useState([]);
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState("back to the future");
   const [selectedId, setSelectedId] = useState(null);
-  // const [watched, setWatched] = useState([]);
-  const [watched, setWatched] = useState(() => {
-    const storedData = localStorage.getItem('watched');
-    return JSON.parse(storedData);
-  });
 
   const handleSelectMovie = (id) => {
     setSelectedId(selectedId => id === selectedId ? null : id);
@@ -287,23 +260,13 @@ export default function App() {
     setWatched(watched => [...watched, movie]);
   }
 
-  const handleDeleteWatched = id => {
-    setWatched(watched => watched.filter(movie => movie.imdbID !== id))
-  }
-
   useEffect(() => {
-    localStorage.setItem('watched', JSON.stringify(watched))
-  }, [watched])
-
-  useEffect(() => {
-    const controller = new AbortController();
     const fetchMovies = async () => {
       setIsLoading(true);
       setError("")
       try {
         const res = await
-          fetch(`http://www.omdbapi.com/?apikey=${KEY.key}&s=${query}`,
-            {signal: controller.signal})
+          fetch(`http://www.omdbapi.com/?apikey=${KEY.key}&s=${query}`)
 
         if (!res.ok)
           throw new Error("Oh ohhhh...");
@@ -313,11 +276,8 @@ export default function App() {
           throw new Error("🤔 Movie not Found")
 
         setMovies(data.Search);
-        setError("");
       } catch (err) {
-        if (err.name !== 'AbortError') {
-          setError(err.message)
-        }
+        setError(err.message)
       } finally {
         setIsLoading(false);
       }
@@ -328,11 +288,7 @@ export default function App() {
       return;
     }
 
-    handleCloseMovie();
     fetchMovies();
-    return function () {
-      controller.abort();
-    }
   }, [query])
 
   return (
@@ -343,6 +299,7 @@ export default function App() {
       </Navbar>
       <Main>
         <Box>
+          {/*{isLoading ? <Loader />: <MovieList movies={movies}/>}*/}
           {isLoading && <Loader/>}
           {!isLoading && !error && <MovieList movies={movies} onSelect={handleSelectMovie}/>}
           {error && <ErrorMessage message={error}/>}
@@ -354,7 +311,7 @@ export default function App() {
                                       onAddWatched={handleAddWatched}/> :
             <>
               <WatchedSummary watched={watched}/>
-              <WatchedMoviesList watched={watched} onDelete={handleDeleteWatched}/>
+              <WatchedMoviesList watched={watched}/>
             </>}
         </Box>
       </Main>

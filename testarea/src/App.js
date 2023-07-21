@@ -1,7 +1,8 @@
 // import TipCalculator from "./TipCalculator";
 // import Image from "./Image";
 // import MultiTimer from "./MultiTimer";
-import TextExpander from "./TextExpander";
+// import TextExpander from "./TextExpander";
+import CurrencyConversion from "./CurrencyConversion";
 
 const App = () => {
   return (
@@ -9,7 +10,8 @@ const App = () => {
       {/*<TipCalculator />*/}
       {/*<Image />*/}
       {/*<MultiTimer />*/}
-      <TextExpander />
+      {/*<TextExpander />*/}
+      <CurrencyConversion />
     </div>
   );
 };

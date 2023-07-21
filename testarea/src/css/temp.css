@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+:root{
+    --primary-bg: #444444;
+    --primary-font: #dedede;
+    --font-family: 'Roboto Mono', monospace, sans-serif;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--primary-bg);
+    color: var(--primary-font);
+    font-family: var(--font-family);
+}
+
+label {
+    font-size: 3.6rem;
+    font-family: inherit;
+}
+
+input[type="text"],
+.output {
+    font-size: 4rem;
+    font-family: inherit;
+    background-color: #333;
+    color: #dedeed;
+    border-radius: .5rem;
+}
+
+.output {
+    width: 20rem;
+    text-align: center;
+}
+input ~ span {
+    font-size: 3rem;
+    font-family: inherit;
+}
+
+select {
+    font-size: 2rem;
+    border-radius: .5rem;
+    padding: 0 3rem;
+    margin: 1rem 2rem;
+}
+.btn-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.btn {
+    font-family: inherit;
+    border-radius: .5rem;
+}
+
+.btn-toggle {
+    padding: 0 .5rem;
+    text-align: center;
+    line-height: 4px;
+    margin-top: .5rem;
+    font-size: 3rem;
+    height: 3rem;
+}
+
+.btn-save,
+.btn-start {
+    margin-top: .6rem;
+    width: 100%;
+    font-size: 1.6rem;
+    background-color: #66a80f;
+}
+
+.btn-start {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+}
+
+.btn-delete {
+    font-size: 1.6rem;
+    color: red;
+    background-color: transparent;
+    border: 1px solid red;
+    padding: 0 .5rem;
+    margin: .5rem;
+}
+
+.header {
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header h1 {
+    font-size: 4rem;
+    letter-spacing: .4rem;
+}
+
+.container {
+    position: relative;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.time-input {
+    position: absolute;
+    top: 10vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.time-set {
+    padding: .3rem 1rem;
+    border: 1px solid #aaa;
+    border-radius: .5rem;
+    background-color: #555;
+}
+
+.form-input {
+    display: flex;
+    justify-content: center;
+}
+
+
+.image-container img {
+    width: 600px;
+    border-radius: 2rem;
+}
+
+.sidebar {
+    position: absolute;
+    top: 30vh;
+    /*right: 10vw;*/
+    width: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar span {
+    font-size: 2.6rem;
+    white-space: nowrap;
+}
+
+@media screen and (max-width: 600px) {
+    * {
+        font-size: 70%;
+    }
+
+    .header {
+        height: 10vh;
+    }
+
+    .container {
+        height: 85vh;
+    }
+
+    .time-input {
+        top: 8vh;
+        z-index: 10;
+    }
+
+    .sidebar {
+        bottom: 5vh;
+    }
+}
