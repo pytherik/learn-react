@@ -3,7 +3,7 @@
 // import MultiTimer from "./MultiTimer";
 // import TextExpander from "./TextExpander";
 // import CurrencyConversion from "./CurrencyConversion";
-import UseGeolocation from "./UseGeolocation";
+import Geolocation from "./Geolocation";
 
 const App = () => {
   return (
@@ -12,7 +12,7 @@ const App = () => {
       {/*<Image />*/}
       {/*<MultiTimer />*/}
       {/*<TextExpander />*/}
-      <UseGeolocation />
+      <Geolocation/>
     </div>
   );
 };
