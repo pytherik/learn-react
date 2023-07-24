@@ -57,7 +57,8 @@ function Weather({weather, location}) {
       <div>
         <h2>Weather {location}</h2>
         <ul className="weather">
-          {dates.map((date, idx) => <Day
+          {dates.map((date, idx) =>
+            <Day
             date={dates.at(idx)}
             min={min.at(idx)}
             max={max.at(idx)}
@@ -117,17 +118,14 @@ function App() {
     }
   }
 
-
   useEffect(() => {
     setLocation(localStorage.getItem("location") || "");
-
-    if(location !== prevLocation.current) {
-      fetchWeather();
+    console.log(location, prevLocation.current)
+    if (location !== prevLocation.current) {
       localStorage.setItem('location', location);
       prevLocation.current = location;
-      console.log(location)
     }
-  }, [location, fetchWeather]);
+  }, [location]);
 
     return (
       <div className='app'>
