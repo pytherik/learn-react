@@ -157,6 +157,10 @@ select {
     white-space: nowrap;
 }
 
+.item {
+    margin: 1rem 0;
+    font-size: 1.5rem;
+}
 @media screen and (max-width: 600px) {
     * {
         font-size: 70%;

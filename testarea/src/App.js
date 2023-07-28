@@ -3,7 +3,8 @@
 // import MultiTimer from "./MultiTimer";
 // import TextExpander from "./TextExpander";
 // import CurrencyConversion from "./CurrencyConversion";
-import Geolocation from "./Geolocation";
+// import Geolocation from "./Geolocation";
+import BankAccountReducer from "./BankAccountReducer";
 
 const App = () => {
   return (
@@ -12,7 +13,8 @@ const App = () => {
       {/*<Image />*/}
       {/*<MultiTimer />*/}
       {/*<TextExpander />*/}
-      <Geolocation/>
+      {/*<Geolocation/>*/}
+      <BankAccountReducer />
     </div>
   );
 };
