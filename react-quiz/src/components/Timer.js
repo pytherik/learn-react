@@ -9,7 +9,7 @@ const Timer = ({dispatch, secondsRemaining}) => {
     return () => clearInterval(id)
   }, [dispatch])
 
-  const minsRemaining = `0 ${Math.floor(secondsRemaining / 60)}`.slice(-2);
+  const minsRemaining = `0${Math.floor(secondsRemaining / 60)}`.slice(-2);
   const secsRemaining = `0${secondsRemaining % 60}`.slice(-2);
   return (
     <div className="timer">

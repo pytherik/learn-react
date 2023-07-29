@@ -20,7 +20,6 @@ const initialState = {
   points: 0,
   highscore: 0,
   secondsRemaining: null,
-  secsPerQuestion: 30
 };
 
 const SECS_PER_QUESTION = 30;
