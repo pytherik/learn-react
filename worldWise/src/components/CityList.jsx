@@ -9,7 +9,7 @@ function CityList({cities, isLoading}) {
   return (
     <div>
       <ul className={styles.cityList}>
-        {cities.map(city => (<CityItem city={city} key={city.id}/>) )}
+        {cities.map(city => <CityItem city={city} key={city.id}/>)}
       </ul>
     </div>
   );

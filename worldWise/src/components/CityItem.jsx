@@ -1,8 +1,9 @@
 import styles from "./CityItem.module.css";
+
 const formatDate = (date) =>
-  new Intl.DateTimeFormat("en", {
+  new Intl.DateTimeFormat("de", {
     day: "numeric",
-    month: "long",
+    month: "short",
     year: "numeric",
   }).format(new Date(date));
 
