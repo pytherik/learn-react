@@ -10,13 +10,12 @@ function CountryList({cities, isLoading}) {
     } else return acc;
   }, []);
 
-  console.log(countries);
   if(isLoading) return <Spinner />;
   if(!countries.length) return <Message message='Add your first country by clicking on a country on the map'/>;
   return (
     <div>
       <ul className={styles.cityList}>
-        {countries.map(country => <CountryItem country={country} key={country}/>)}
+        {countries.map(country => <CountryItem country={country} key={country.country}/>)}
       </ul>
     </div>
   );
