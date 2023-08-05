@@ -1,4 +1,3 @@
-// import {useState, useEffect} from "react";
 import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
 import Product from "./pages/Product.jsx";
 import Pricing from "./pages/Pricing.jsx";
@@ -14,7 +13,6 @@ import {CityProvider} from "./context/CityContext.jsx";
 
 const App = () => {
 
-
   return (
     <>
       <CityProvider>
@@ -27,10 +25,8 @@ const App = () => {
             <Route path="app" element={<AppLayout/>}>
               <Route index element={<Navigate replace to="cities"/>}/>
               <Route path="cities" element={<CityList/>}/>
-              {/*<Route path="cities" element={<CityList cities={cities} isLoading={isLoading}/>}/>*/}
               <Route path="cities/:id" element={<City/>}/>
               <Route path="countries" element={<CountryList/>}/>
-              {/*<Route path="countries" element={<CountryList cities={cities} isLoading={isLoading}/>}/>*/}
               <Route path="form" element={<Form/>}/>
             </Route>
             <Route path="*" element={<PageNotFound/>}/>
