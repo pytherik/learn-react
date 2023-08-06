@@ -1,40 +1,52 @@
 {
   "cities": [
     {
-      "cityName": "Lisbon",
-      "country": "Portugal",
-      "emoji": "\uD83C\uDDF5\uD83C\uDDF9",
-      "date": "2027-10-31T15:59:59.138Z",
-      "notes": "My favorite city so far!",
-      "position": {
-        "lat": 38.727881642324164,
-        "lng": -9.140900099907554
-      },
-      "id": 73930385
-    },
-    {
-      "cityName": "Madrid",
-      "country": "Spain",
-      "emoji": "\uD83C\uDDEA\uD83C\uDDF8",
-      "date": "2027-07-15T08:22:53.976Z",
-      "notes": "",
-      "position": {
-        "lat": 40.46635901755316,
-        "lng": -3.7133789062500004
-      },
-      "id": 17806751
-    },
-    {
       "cityName": "Berlin",
       "country": "Germany",
-      "emoji": "\uD83C\uDDE9\uD83C\uDDEA",
+      "emoji": "🇩🇪",
       "date": "2027-02-12T09:24:11.863Z",
       "notes": "Amazing 😃",
       "position": {
-        "lat": 52.53586782505711,
-        "lng": 13.376933665713324
+        "lat": 52.44581,
+        "lng": 13.32666
       },
       "id": 98443197
+    },
+    {
+      "cityName": "Mimizan",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "2023-08-06T08:59:01.447Z",
+      "notes": "test",
+      "position": {
+        "lat": "44.201404902221384",
+        "lng": "-1.2924438714981081"
+      },
+      "id": 98443198
+    },
+    {
+      "cityName": "Rimini",
+      "country": "Italy",
+      "emoji": "🇮🇹",
+      "date": "2018-05-30T09:08:28.000Z",
+      "notes": "Klassenfahrt 1986",
+      "position": {
+        "lat": "44.05998626805044",
+        "lng": "12.574930787086489"
+      },
+      "id": 98443199
+    },
+    {
+      "cityName": "Formiche Alto",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2023-08-06T11:21:50.182Z",
+      "notes": "qwq",
+      "position": {
+        "lat": "40.34654412118006",
+        "lng": "-0.8789062500000001"
+      },
+      "id": 98443200
     }
   ]
 }
