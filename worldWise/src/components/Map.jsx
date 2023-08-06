@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {useSearchParams, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import styles from "./Map.module.css";
 import {MapContainer, Marker, Popup, TileLayer, useMap, useMapEvents} from "react-leaflet";
 import {useCities} from "../context/CityContext.jsx";
@@ -8,9 +8,10 @@ import {Icon} from 'leaflet'
 import {useGeolocation} from "../hooks/useGeolocation.js";
 import Button from "./Button.jsx";
 import {useUrlPosition} from "../hooks/useUrlPosition.js";
+import Spinner from "./Spinner.jsx";
 
 function Map() {
-  const {cities, currentCity} = useCities();
+  const {cities} = useCities();
 
   const {
     isLoading: isLoadingPosition,
@@ -19,9 +20,6 @@ function Map() {
 
   const [mapPosition, setMapPosition] = useState([40, 0])
   const {lat, lng} = useUrlPosition();
-  // const [searchParams] = useSearchParams();
-  // const mapLat = searchParams.get("lat");
-  // const mapLng = searchParams.get("lng");
 
   useEffect(() => {
     if(lat && lng)
@@ -32,6 +30,7 @@ function Map() {
     if(geolocationPosition)
       setMapPosition([geolocationPosition.lat, geolocationPosition.lng]);
   }, [geolocationPosition])
+
 
   return (
     <div className={styles.mapContainer}>

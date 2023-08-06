@@ -50,9 +50,9 @@ function Form() {
         setCityName(data.city || data.locality);
         setEmoji(convertToEmoji(data.countryCode));
         setCountry(data.countryName);
+
         if (!data.countryCode)
           throw new Error("There's nothing but water 🙃 Click somewhere else!")
-        console.log(data)
       } catch (error) {
         setGeocodingError(error.message);
         console.log(error);
@@ -83,7 +83,7 @@ function Form() {
     console.log(newCity);
   }
 
-  if (isLoadingGeocoding) return <Spinner/>
+  if (isLoading) return <Spinner/>
   if (geocodingError) return <Message message={geocodingError}/>
   if (!lat && !lng) return <Message message="Start by clicking somewhere on the map!"/>
 
